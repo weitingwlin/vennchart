@@ -5,10 +5,12 @@ source("getplotlimit.R")
 
 plotVenn <- function(venn, 
                      color = list(rgb(0,0,1,0.3),rgb(1,0, 0, 0.3), rgb(0, 1, 0, 0.3)),
-                    line  = NA,lwd = 2,
+                    line  = NA,lwd = 2, adj = 1.5
                      ){
   
-  plot(1, type="n", xlim=c(-3, 5), ylim=c(-5, 3),  
+  lim <- getPlotLimit(venn, adj = adj)
+  
+  plot(1, type = "n", xlim = lim$xlim, ylim = lim$ylim,  
        xaxt = 'n', ann = FALSE, yaxt ='n')
   
   

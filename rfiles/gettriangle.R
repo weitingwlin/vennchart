@@ -1,7 +1,7 @@
 
 source("vecangle.R")
 source("vecrotate.R")
-source("gettriangle.R")
+
 
 
 getTriangle <- function(c1 = c(0,0), r1, c2, r2){

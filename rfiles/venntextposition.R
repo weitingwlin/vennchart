@@ -1,7 +1,8 @@
 # source("vecangle.R")
 source("vecrotate.R")
+source("gettriangle.R")
 
-vennTextPosition <- function( vennout, adj = c(0.5, 1){
+vennTextPosition <- function (vennout, adj = c(0.5, 1)){
   
   # parsing the output of `vennThreeCircle`
     c1 <- vennout$c1

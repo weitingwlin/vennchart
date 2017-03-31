@@ -18,7 +18,7 @@ rotateCircleFit <- function(B_all, C_all, BandC, c2, r2, c3, r3  ,  it = 100){
     temp3 <- matrix(0, it, 2) # empty
     
     for (i in 1:it){
-      temp3[i,] <- vecRotate(c3, angle = try[i])$v2
+      temp3[i,] <- vecRotate(c3, angle = try[i])
       tryout[i] <- circleOverlap(c2, r2, temp3[i,], r3)$AB
     }
     besti <- which.min(abs(tryout - BandC))

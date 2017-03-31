@@ -1,6 +1,7 @@
 
 source("vecangle.R")
 source("vecrotate.R")
+source("gettriangle.R")
 
 
 getTriangle <- function(c1 = c(0,0), r1, c2, r2){
@@ -30,6 +31,12 @@ getTriangle <- function(c1 = c(0,0), r1, c2, r2){
   c3p <- c(x, y)
   c4p <- c(x, -1 * y)
   
+  ## get thetas: easier in the transformed
+  
+  theta1 <- vecAngle(c3p)
+  theta2 <- (2 * pi) - vecAngle(c2p- c3p)
+  theta3 <- pi - theta1 - theta2
+  
   # rotate- move backword
   c3 <- c1 + vecRotate(c3p, thetaO)
   c4 <- c1 + vecRotate(c4p, thetaO)
@@ -37,7 +44,9 @@ getTriangle <- function(c1 = c(0,0), r1, c2, r2){
   ## report c3 that c1 -> c2 -> c3 goes counter-clockwise
   ## "the other" intersect is c4
   
-  out <- list("x" = x, "y" = y, "c3" = c3, "c4" = c4)
+  out <- list("x" = x, "y" = y, "c3" = c3, "c4" = c4, "d" = d,
+              "theta0" = thetaO,
+              "theta1" = theta1, "theta2" = theta2, "theta3" = theta3)
   
   return(out)
   

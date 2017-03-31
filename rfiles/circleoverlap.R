@@ -29,6 +29,7 @@ circleOverlap <- function(c1, r1, c2, r2){
     }
     
     if( max( c(r1,r2) ) < (d + min( c(r1, r2) ) ) & d < (r1 + r2) ){
+      # partially overlap
         out <- circleIntersect( c1, r1, c2, r2) 
     }
     

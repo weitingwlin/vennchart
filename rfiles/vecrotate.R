@@ -1,4 +1,10 @@
-vecRotate <- function(v1, angle, v0 = c(0, 0)){
+vecRotate <- function(v1 = 1, angle, v0 = c(0, 0)){
+  
+  # v1 can be the length of unit vector (r = 1) at angle = 0
+  if (length(v1) == 1){
+    v1 == c(v1, 0)
+  }
+  
   v <- v1 - v0
   r <- sqrt((v[1] ^ 2) + (v[2] ^ 2) )
   old <-vecAngle(v)

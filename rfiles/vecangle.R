@@ -1,3 +1,4 @@
+# angle of a vector going from point v2 to point v1
 
 vecAngle <- function(v1, v2 = c(0, 0)){
     v <- v1 - v2
@@ -30,18 +31,5 @@ vecAngle <- function(v1, v2 = c(0, 0)){
 }
 
 
-
-angleTrim <- function(theta){
-    if (theta > (2 * pi)) {
-        while (theta > (2 * pi)){
-            theta <- theta - (2 * pi)
-        }
-    } else {
-        while (theta < 2 * pi){
-            theta <- theta + (2 * pi)
-        }
-    }
-    return(theta)
-}
 
 

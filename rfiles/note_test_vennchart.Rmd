@@ -14,10 +14,25 @@ co_BC <- 0.5
 co_AC <-1
 ```
 
+## test using package from github
+
+```{r}
+ library(devtools)
+ install_github("vennchart", "weitingwlin")
+# install("C:/Users/Wei-Ting/Dropbox/DataCoding/my_R/package/vennchart")
+library(vennchart)
+```
+
+```{r,fig.width = 7, fig.height = 7}
+#source("sourceAll.R")
+Q <- vennChart(A_all = co_A, B_all = co_B, C_all = co_C,
+                AandB = co_AB, AandC = co_AC, BandC = co_BC)
+```
+
 ## vennChart
 
 ```{r,fig.width = 7, fig.height = 7}
-source("sourceAll.R")
+#source("sourceAll.R")
 Q <- vennChart(A_all = co_A, B_all = co_B, C_all = co_C,
                 AandB = co_AB, AandC = co_AC, BandC = co_BC)
 ```

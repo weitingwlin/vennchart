@@ -1,6 +1,6 @@
-source("rotateCirclefit.R")
-source("movecirclefit.R")
-source("vennchecklogic.R")
+#source("rotateCirclefit.R")
+#source("movecirclefit.R")
+#source("vennchecklogic.R")
 # source("plotcircle.R")
 
 vennThreeCircle <- function(A_all, B_all, C_all, AandB, AandC, BandC, try = 100){

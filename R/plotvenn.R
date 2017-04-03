@@ -1,7 +1,7 @@
 
-source("plotcircle.R")
-source("getTriangle.R")
-source("getplotlimit.R")
+#source("plotcircle.R")
+#source("getTriangle.R")
+#source("getplotlimit.R")
 
 plotVenn <- function(venn, 
                      color = list(rgb(0,0,1,0.3), rgb(1,0, 0, 0.3), rgb(0, 1, 0, 0.3)),

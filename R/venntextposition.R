@@ -1,6 +1,6 @@
 # source("vecangle.R")
-source("vecrotate.R")
-source("gettriangle.R")
+#source("vecrotate.R")
+#source("gettriangle.R")
 
 vennTextPosition <- function (vennout, textadj = c(0.5, 0.5)){
   

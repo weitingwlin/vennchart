@@ -1,4 +1,4 @@
-source("circleoverlap.R")
+#source("circleoverlap.R")
 
 moveCircleFit <- function(A_all, B_all, AandB, scale = 1, it = 100){
     # given two circle venn chart data, return centers and rs

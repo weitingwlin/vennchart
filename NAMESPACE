@@ -1,0 +1,5 @@
+export("plotCircle")
+export("vennChart")
+export("plotVenn")
+export("plotVennTexts")
+importFrom(graphics, "polygon")

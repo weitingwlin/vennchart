@@ -1,0 +1,44 @@
+---
+title: "test vennThreeCircle"
+output: md_notebook
+---
+
+```{r,  fig.width = 7, fig.height = 7}
+# setwd("C:/Users/Wei-Ting/Dropbox/DataCoding/my_R/package/vennchart/rfiles")
+rm(list =ls())
+co_A <- 10
+co_B <- 12
+co_C <- 3
+co_AB <- 1.9
+co_BC <- 0.5
+co_AC <-1
+```
+
+## vennChart
+
+```{r,fig.width = 7, fig.height = 7}
+source("sourceAll.R")
+Q <- vennChart(A_all = co_A, B_all = co_B, C_all = co_C,
+                AandB = co_AB, AandC = co_AC, BandC = co_BC)
+```
+
+
+## 3-step method
+
+```{r,  fig.width = 7, fig.height = 7}
+# source("plotvenn.R")
+# source("plotvenntexts.R")
+# source("sourceAll.R")
+
+plotVenn(Q$circles)
+plotVennTexts(Q$textspos, unit = "%)", connect = ":\n(")
+title(main = "Big title")
+```
+
+
+
+
+
+
+
+

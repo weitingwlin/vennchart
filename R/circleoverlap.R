@@ -1,5 +1,5 @@
 
-source("circleintersect.R")
+#source("circleintersect.R")
 
 circleOverlap <- function(c1, r1, c2, r2){
     d <- sqrt(sum((c1 - c2) ^ 2)) # distance between center

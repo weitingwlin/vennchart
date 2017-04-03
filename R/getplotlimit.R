@@ -14,7 +14,7 @@ getPlotLimit <- function(vennout, adj = 1.5){
   ymax <- max(c1[2] + r1, c2[2] + r2, c3[2] + r3)
   ymin <- min(c1[2] - r1, c2[2] - r2, c3[2] - r3)
   
-  size <- max( xmax - xmin, ymax - ymin) * adj #¡@the longer one
+  size <- max( xmax - xmin, ymax - ymin) * adj 
   
   xlim <- (c(-0.5, 0.5) * size) +  (xmin + xmax)/2
   ylim <- (c(-0.5, 0.5) * size) +  (ymin + ymax)/2

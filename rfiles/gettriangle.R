@@ -23,7 +23,7 @@ getTriangle <- function(c1 = c(0,0), r1, c2, r2){
   c2p <- vecRotate( c2temp , -1 * thetaO)
   
   ## get the numbers
-  d <- sqrt(sum((c1 - c2) ^ 2)) # distance between centers
+  d <- sqrt(sum((c1p - c2p) ^ 2)) # distance between centers
   x <- (d^2 - r2^2 + r1^2) / (2*d) # mid point of circle intersection
                                    # x coordinate of c3p   
   y <- sqrt(abs(r1^2 - x^2)) # height

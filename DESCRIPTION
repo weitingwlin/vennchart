@@ -3,9 +3,8 @@ Type: Package
 Title: What the Package Does (Title Case)
 Version: 0.1.0
 Author: Lin, Wei-Ting, weiting.lin.lin@gmail.com
-Maintainer: weiting.lin.lin@gmail.com
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
+Maintainer: Lin, Wei-Ting <weiting.lin.lin@gmail.com>
+Description: Making Venn/Eular charts
 License: What license is it under?
 Encoding: UTF-8
 LazyData: true

@@ -1,4 +1,5 @@
 #source("plotvenn.R")
+#' @export
 
 vennChart <- function(A_all , B_all , C_all ,
                       AandB , AandC , BandC,

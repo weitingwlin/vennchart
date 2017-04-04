@@ -1,0 +1,66 @@
+---
+title: "test vennThreeCircle"
+output: md_notebook
+---
+
+```{r,  fig.width = 7, fig.height = 7}
+# setwd("C:/Users/Wei-Ting/Dropbox/DataCoding/my_R/package/vennchart/rfiles")
+rm(list =ls())
+co_A <- 10
+co_B <- 12
+co_C <- 3
+co_AB <- 1.9
+co_BC <- 0.5
+co_AC <-1
+```
+
+## test using package from github
+
+```{r}
+# install.packages("devtools")
+ library(devtools)
+# install_github("vennchart", "weitingwlin")
+# install("C:/Users/Wei-Ting/Dropbox/DataCoding/my_R/package/vennchart")
+library(vennchart)
+```
+
+```{r,fig.width = 7, fig.height = 7}
+#source("sourceAll.R")
+Q <- vennChart(A_all = co_A, B_all = co_B, C_all = co_C,
+                AandB = co_AB, AandC = co_AC, BandC = co_BC)
+```
+
+## vennChart
+
+[Paletton](http://paletton.com/#uid=33t0w0kqUB+7U++8F++ZWadZWad)
+
+```{r,fig.width = 7, fig.height = 7}
+#source("sourceAll.R")
+Q <- vennChart(A_all = co_A, B_all = co_B, C_all = co_C,
+                AandB = co_AB, AandC = co_AC, BandC = co_BC,
+               colors = list(rgb(0.145, 0.51, 0.71, 0.6), 
+                          rgb(1, 0.78, 0.16, 0.6),
+                          rgb(1, 0.32, 0.16, 0.6))
+               )
+```
+
+
+## 3-step method
+
+```{r,  fig.width = 7, fig.height = 7}
+# source("plotvenn.R")
+# source("plotvenntexts.R")
+# source("sourceAll.R")
+
+plotVenn(Q$circles, frameadj = 1.2)
+plotVennTexts(Q$textspos, unit = "%)", connect = ":\n(")
+title(main = "Big title")
+```
+
+
+
+
+
+
+
+

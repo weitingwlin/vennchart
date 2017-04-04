@@ -1,0 +1,17 @@
+---
+title: "making package"
+output: md_notebook
+---
+
+also see [this article]
+
+```{r}
+#install.packages("devtools")
+library("devtools")
+```
+
+
+```{r}
+create("practice")
+```
+

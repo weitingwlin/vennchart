@@ -1,0 +1,124 @@
+---
+title: "Note on the myvenn function"
+output: md_notebook
+---
+
+```{r}
+rm(list=ls())
+#  setwd("C:/Users/Wei-Ting/Dropbox/DataCoding/my_R")
+# install.packages("plotrix")
+# install.packages("graphics")
+library(plotrix)
+library(graphics)
+```
+
+## circle intersection
+ example
+ 
+ 
+```{r,  fig.width = 10, fig.height = 10}
+c1 <- c(0,0) # center of circle 1
+c2 <- c(2,0)
+r1 <- 1
+r2 <- 0.8
+c3 <- c(-1, -2)
+r3 <- 1
+#plot.new()
+#plot(c(c1[1], c2[1]), c(c1[2], c2[2]),   xlim=c(-3, 3), ylim=c(-3, 3))
+theta <- seq(0, 2 *pi, 0.05)
+plot(1, type="n", xlim=c(-3, 3), ylim=c(-3, 3))
+polygon(c1[1] + sin(theta) * r1, c1[2] + cos(theta) * r1, col = rgb(0, 0.3, 1, 0.4))
+polygon(c2[1] + sin(theta) * r2, c2[2] + cos(theta) * r2, col = rgb(1, 0, 0, 0.4))
+polygon(c3[1] + sin(theta) * r3, c3[2] + cos(theta) * r3, col = rgb(0.3, 1, 0, 0.4), border = NA)
+```
+
+
+
+
+```{r}
+source("circleoverlap.R")
+circleOverlap(c1, r1, c2, r2)
+```
+
+```{r,  fig.width = 10, fig.height = 10}
+source("plotcircle.R")
+plot(1, type="n", xlim=c(-3, 3), ylim=c(-3, 3))
+plotCircle(c(1,1), 2, rgb(1,0,0,0.2),
+           line = NA, lwd = 2)
+```
+
+
+
+```{r,  fig.width = 10, fig.height = 10}
+source("movecirclefit.R")
+n <- moveCircleFit(5, 10, 4.5)
+plot(1, type="n", xlim=c(-3, 3), ylim=c(-3, 3))
+plotCircle(n$c1, n$r1)
+plotCircle(n$c2, n$r2, rgb(1,0,0,0.2),
+           line = NA, lwd = 2)
+```
+
+
+
+
+```{r,  fig.width = 7, fig.height = 7}
+
+n <- moveCircleFit(5, 10, 4.5)
+plot(1, type="n", xlim=c(-3, 3), ylim=c(-3, 3))
+plotCircle(n$c1, n$r1)
+plotCircle(n$c2, n$r2, rgb(1,0,0,0.2),
+           line = NA, lwd = 2)
+A <-5
+B <-10
+C <- 6
+AC <- 1
+BandC <-2.5
+
+p <- moveCircleFit(5, 6, 1)
+
+plotCircle(c3, r3, color = NULL, lwd = 2)
+
+c2 <- n$c2
+r2 <- n$r2
+c3 <- p$c2
+r3 <- p$r2
+```
+
+
+```{r,  fig.width = 7, fig.height = 7}
+rm(list =ls())
+co_A <- 10
+co_B <- 12
+co_C <- 3
+co_AB <- 1.9
+co_BC <- 0.5
+co_AC <-1
+
+source("rotateCirclefit.R")
+source("movecirclefit.R")
+source("plotcircle.R")
+
+n <- moveCircleFit(co_A, co_B, co_AB)
+plot(1, type="n", xlim=c(-3, 5), ylim=c(-5, 3),  
+     xaxt='n', ann=FALSE, yaxt='n')
+plotCircle(n$c1, n$r1)
+plotCircle(n$c2, n$r2, rgb(1,0,0,0.2),
+           line = NA, lwd = 2)
+
+p <- moveCircleFit(co_A, co_C, co_AC)
+c2 <- n$c2
+r2 <- n$r2
+c3 <- p$c2
+r3 <- p$r2
+q <- rotateCircleFit(B_all = co_B, C_all = co_C, BandC = co_BC, 
+                      c2 = n$c2, r2 = n$r2, c3 = p$c2, r3 =  p$r2 )
+
+plotCircle(q$c3, r3, color = NULL, lwd = 2)
+
+
+```
+
+
+
+
+

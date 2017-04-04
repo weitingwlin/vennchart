@@ -1,0 +1,178 @@
+---
+title: "test vennThreeCircle"
+output: md_notebook
+---
+
+```{r,  fig.width = 7, fig.height = 7}
+# setwd("C:/Users/Wei-Ting/Dropbox/DataCoding/my_R/package/vennchart/rfiles")
+rm(list =ls())
+co_A <- 10
+co_B <- 12
+co_C <- 3
+co_AB <- 1.9
+co_BC <- 0.5
+co_AC <-1
+
+# source("rotateCirclefit.R")
+# source("movecirclefit.R")
+```
+
+test function vennThreeCircle
+
+```{r}
+source("vennthreecircle.R")
+
+
+s <- vennThreeCircle(A_all = co_A, B_all = co_B, C_all = co_C,
+                AandB = co_AB, AandC = co_AC, BandC = co_BC)
+s
+```
+
+
+
+make plot
+
+```{r,  fig.width = 7, fig.height = 7}
+source("plotcircle.R")
+
+plot(1, type="n", xlim=c(-3, 5), ylim=c(-5, 3),  
+     xaxt='n', ann=FALSE, yaxt='n')
+
+plotCircle(s$c1, s$r1)
+plotCircle(s$c2, s$r2, rgb(1,0,0,0.2),
+           line = NA, lwd = 2)
+plotCircle(s$c3, s$r3, color = NULL, lwd = 2)
+  thetaA <- vecAngle(s$c3)
+  thetaB_AC <-  vecAngle(s$c2 - s$c3) # perpendicular to line A-C
+
+
+  textA <- s$r1 * vecRotate(c(1,0), thetaA-pi) *1.2
+  
+text(textA[1], textA[2], 
+    paste("$\\cap$", "A:", as.character(co_A)), 
+     cex =1.5, adj = c(0.5, 0))
+  
+
+  textB <- (s$c2 + (s$r2 * vecRotate(c(1, 0), thetaB_AC))) * 1.2
+  
+text(textB[1], textB[2], 
+     paste("B:", as.character(co_B)), cex =1.5, adj = c(0.5, 0))
+
+  textC <- s$c3/sqrt(s$c3[1]^2 + s$c3[2]^2) *(sqrt(s$c3[1]^2 + s$c3[2]^2) + s$r3)*1.2
+
+text(textC[1] , textC[2], 
+     paste("C:", as.character(co_C)), cex =1.5, adj = c(0.5,1))
+
+
+
+```
+
+## another option of plot
+
+```{r,  fig.width = 7, fig.height = 7}
+source("plotcircle.R")
+source("getTriangle.R")
+
+plot(1, type="n", xlim=c(-3, 5), ylim=c(-5, 3),  
+     xaxt='n', ann=FALSE, yaxt='n')
+
+plotCircle(s$c1, s$r1)
+plotCircle(s$c2, s$r2, rgb(1,0,0,0.2),
+           line = NA, lwd = 2)
+plotCircle(s$c3, s$r3, color = NULL, lwd = 2)
+  thetaA <- vecAngle(s$c3)
+  thetaB_AC <-  vecAngle(s$c2 - s$c3) # perpendicular to line A-C
+
+
+  textA <- s$r1 * vecRotate(c(1,0), thetaA-pi) *0.5
+  
+text(textA[1], textA[2], 
+     paste("A:", as.character(co_A)), cex =1.5, adj = c(0.5, 0))
+  
+  textB <- s$c2 + (s$r2 * vecRotate(c(1, 0), thetaB_AC))  *0.5
+  
+text(textB[1], textB[2], 
+     paste("B:", as.character(co_B)), cex =1.5, adj = c(0.5, 0))
+
+  textC <- s$c3 + (s$c3 / sqrt(s$c3[1]^2 + s$c3[2]^2)) * s$r3 * 0.5 
+
+text(textC[1] , textC[2], 
+     paste("C:", as.character(co_C)), cex =1.5, adj = c(0.5,1))
+
+
+# if (max( c(s$r1, s$r2) ) < (d + min( c(s$r1, s$r2) ) ) & d < (s$r1 + s$r2)){}
+  # A and B partially ovelaped
+
+```
+
+
+## logically problematic
+
+```{r}
+source("vennthreecircle.R")
+vennThreeCircle(A_all = co_A, B_all = co_B, C_all = co_C,
+                AandB = co_A + 1, AandC = co_AC, BandC = co_BC)
+
+
+```
+
+## test getTringle
+
+
+```{r}
+source("getTriangle.R")
+p1 <- s$c2
+l1 <- s$r2
+p2 <- s$c3
+l2 <- s$r3
+
+n <- getTriangle(p1, l1, p2, l2)
+n
+```
+
+
+```{r,  fig.width = 7, fig.height = 7}
+plot(c(p1[1], p2[1], n$c3[1]) , c(p1[2], p2[2], n$c3[2]), pch = 19, 
+     xlim =c(-2,5), ylim = c(-2,5))
+# matplot(2.0, 2.5, add = TRUE, pch = 1)
+colb <-  col2rgb("blue")/256
+plotCircle(p1, l1, color =rgb( colb[1], colb[2], colb[3], 0.2))
+colr <-  col2rgb("red")/256
+plotCircle(p2, l2, color =rgb( colr[1], colr[2], colr[3], 0.2))
+
+xp <-vecRotate( c(n$x, 0), n$theta1) + p1 # mid point
+
+tp <- xp + vecRotate(c(0, l2), n$theta0)
+
+
+
+matplot(xp[1], xp[2], add = TRUE, pch = 1)
+matplot(tp[1], tp[2], add = TRUE, pch = 19)
+```
+
+
+## test vennTextPosition
+
+```{r}
+source("venntextposition.R")
+
+vennTextPosition(s)
+```
+
+
+## text vennplot
+
+```{r,  fig.width = 7, fig.height = 7}
+source("plotvenn.R")
+
+plotVenn(s)
+
+```
+
+###
+```{r}
+#install.packages("tickzDevice")
+require(tickzDevice)
+#text(1,1, "A")
+```
+

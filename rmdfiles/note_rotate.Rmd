@@ -1,0 +1,47 @@
+---
+title: "Note about vector rotation"
+output: html_notebook
+---
+
+```{r, fig.width = 5, fig.height = 5}
+v1 <- c(-1, 2)
+plot(v1[1], v1[2], xlim =c(-2,2), ylim = c(-2,2))
+abline(h = 0)
+abline(v = 0)
+```
+
+Get angle:
+
+```{r}
+source("vecangle.R")
+v1 <- c(-1, 1)
+r1 <- sqrt((v1[1] ^ 2) + (v1[2] ^ 2) )
+
+theta1 <- acos(v1[1]/r1)
+theta1
+theta2 <- asin(v1[2]/r1)
+theta2
+
+theta <-vecAngle(v1)
+theta
+```
+
+```{r, fig.width = 5, fig.height = 5}
+plot(v1[1], v1[2], xlim =c(-2,2), ylim = c(-2,2))
+abline(h = 0)
+abline(v = 0)
+points(r1 * cos(theta), r1 * sin(theta), col = "blue", pch = "+")
+newv <- vecRotate(v1, pi/2, v0 =  c(0, 0))
+
+points(newv$v2[1], newv$v2[2], col = "red")
+```
+
+
+```{r}
+newv
+```
+
+
+
+
+

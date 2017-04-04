@@ -6,6 +6,7 @@ vennChart <- function(A_all , B_all , C_all ,
                       plot = TRUE, 
                       colors = list(rgb(0,0,1,0.3), rgb(1,0, 0, 0.3), rgb(0, 1, 0, 0.3)),
                       frameadj = 1.5, line  = NA, lwd = 2, 
+                      lim = getPlotLimit(V, adj = frameadj),
                       texts = TRUE, names = c("A", "B", "C"),
                       Value = TRUE, cex = 1, textadj = c(0.5, 0.5),
                       connect = "\n", unit = " ", digits = 3){

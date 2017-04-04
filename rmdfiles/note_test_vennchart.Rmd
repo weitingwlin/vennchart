@@ -28,7 +28,13 @@ library(vennchart)
 #source("sourceAll.R")
 Q <- vennChart(A_all = co_A, B_all = co_B, C_all = co_C,
                 AandB = co_AB, AandC = co_AC, BandC = co_BC)
+
 ```
+```{r}
+L <- Q$circles$limits
+```
+
+
 
 ## vennChart
 

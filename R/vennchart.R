@@ -8,7 +8,7 @@ vennChart <- function(A_all , B_all , C_all ,
                       frameadj = 1.5, line  = NA, lwd = 2, 
                       texts = TRUE, names = c("A", "B", "C"),
                       Value = TRUE, cex = 1, textadj = c(0.5, 0.5),
-                      connect = "\n", unit = " "){
+                      connect = "\n", unit = " ", digits = 3){
     
     s <- vennThreeCircle(A_all , B_all , C_all , AandB , AandC , BandC )
     p <- vennTextPosition(s, textadj)
@@ -20,7 +20,7 @@ vennChart <- function(A_all , B_all , C_all ,
          line  = line,lwd = lwd, frameadj = frameadj)
         if (texts == TRUE){
             plotVennTexts(p, Atext = names[1], Btext = names[2], Ctext = names[3],
-                          Value = Value, cex = cex, connect = connect, unit = unit)
+                          Value = Value, cex = cex, connect = connect, unit = unit, digits = digits)
         }
     }
     return(out)

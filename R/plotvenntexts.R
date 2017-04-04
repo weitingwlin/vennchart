@@ -2,16 +2,17 @@
 
 plotVennTexts <- function(P, Atext = "A", Btext = "B", Ctext = "C", 
                           ABtext = " ", ACtext = " ", BCtext = " ",
-                          Value = TRUE, cex = 1, connect = "\n", unit = " "){
+                          Value = TRUE, cex = 1, connect = "\n", unit = " ",
+                          digits = 3){
     
     if (Value == TRUE){
-        At <- paste(Atext, connect, as.character(P$A), unit)
-        Bt <- paste(Btext, connect, as.character(P$B), unit)
-        Ct <- paste(Ctext, connect, as.character(P$C), unit)
+        At <- paste(Atext, connect, as.character(round(P$A, digits = digits)), unit)
+        Bt <- paste(Btext, connect, as.character(round(P$B, digits = digits)), unit)
+        Ct <- paste(Ctext, connect, as.character(round(P$C, digits = digits)), unit)
         
-        ABt <-  paste(Atext, "&", Btext, connect, as.character(P$AB), unit)
-        ACt <-  paste(Atext, "&", Ctext, connect, as.character(P$AC), unit)
-        BCt <-  paste(Btext, "&", Ctext, connect, as.character(P$BC), unit)
+        ABt <-  paste(Atext, "&", Btext, connect, as.character(round(P$AB, digits = digits)), unit)
+        ACt <-  paste(Atext, "&", Ctext, connect, as.character(round(P$AC, digits = digits)), unit)
+        BCt <-  paste(Btext, "&", Ctext, connect, as.character(round(P$BC, digits = digits)), unit)
         
     } else {
         At <- Atext

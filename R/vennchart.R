@@ -10,7 +10,6 @@ vennChart <- function(A_all , B_all , C_all ,
                       Value = TRUE, cex = 1, textadj = c(0.5, 0.5),
                       connect = "\n", unit = " "){
     
-    
     s <- vennThreeCircle(A_all , B_all , C_all , AandB , AandC , BandC )
     p <- vennTextPosition(s, textadj)
     

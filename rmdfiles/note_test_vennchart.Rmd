@@ -20,7 +20,7 @@ co_AC <-1
 # install.packages("devtools")
  library(devtools)
 # install_github("vennchart", "weitingwlin")
-# install("C:/Users/Wei-Ting/Dropbox/DataCoding/my_R/package/vennchart")
+ install("C:/Users/Wei-Ting/Dropbox/DataCoding/my_R/package/vennchart")
 library(vennchart)
 ```
 
@@ -38,9 +38,12 @@ Q <- vennChart(A_all = co_A, B_all = co_B, C_all = co_C,
 #source("sourceAll.R")
 Q <- vennChart(A_all = co_A, B_all = co_B, C_all = co_C,
                 AandB = co_AB, AandC = co_AC, BandC = co_BC,
-               colors = list(rgb(0.145, 0.51, 0.71, 0.6), 
-                          rgb(1, 0.78, 0.16, 0.6),
-                          rgb(1, 0.32, 0.16, 0.6))
+               colors = list(rgb(0.145, 0.51, 0.71, 0.4), 
+                          rgb(1, 0.78, 0.16, 0.4),
+                          rgb(1, 0.32, 0.16, 0.4)),
+               textadj = c(1, 0.2),
+               cex = 1.5,
+               frameadj = 1.1
                )
 ```
 
@@ -54,7 +57,7 @@ Q <- vennChart(A_all = co_A, B_all = co_B, C_all = co_C,
 
 plotVenn(Q$circles, frameadj = 1.2)
 plotVennTexts(Q$textspos, unit = "%)", connect = ":\n(")
-title(main = "Big title")
+title(main = "Title")
 ```
 
 

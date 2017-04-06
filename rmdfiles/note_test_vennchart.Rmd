@@ -20,7 +20,8 @@ co_AC <-1
 # install.packages("devtools")
  library(devtools)
 # install_github("vennchart", "weitingwlin")
- install("~/Dropbox/DataCoding/my_R/package/vennchart")
+# install("~/Dropbox/DataCoding/my_R/package/vennchart")
+ install("C:/Users/Wei-Ting/Dropbox/DataCoding/my_R/package/vennchart")
 library(vennchart)
 ```
 

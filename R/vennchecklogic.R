@@ -33,7 +33,20 @@ vennCheckLogic <- function(A_all, B_all, C_all, AandB, AandC, BandC){
       out$proble6 <- "C < (B and C)"
     }
     
-    
+    if (AandB + AandC  > A_all - BandC){
+  #      out$isOK <- FALSE
+   #     out$proble7 <- "AB + AC > A + (B and C)"
+    }
   
+    if (AandB + BandC  > B_all - AandC){
+    #    out$isOK <- FALSE
+     #   out$proble8 <- "AB + BC > B + (A and C)"
+    }
+    
+    if (AandC + BandC  > C_all - AandB){
+      #  out$isOK <- FALSE
+       # out$proble9 <- "AC + BC > C + (A and B)"
+    }
+    
     return(out)
 }

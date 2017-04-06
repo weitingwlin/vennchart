@@ -39,6 +39,8 @@ plotVennTexts(P, Atext = "A", Btext = "B", Ctext = "C",
   \item{plot}{Whether to make the plot (default: TRUE)}
   \item{colors}{List of 3 color arguments, each item correspond to one variable, and will be passed to the polygon\{graphics\} function.}
   \item{frameadj}{The size of the frame realtive to the minimal suqure to fit the graph.(Default : 1.5)}
+  
+  \item{lim}{A list of two arrays, passing to function \code{plot} as \code{xlim} and \code{ylim}. Default is \code{"default"}, that means calculat x, y limits from the \code{frameadj} value. This argument will overwrite the \code{frameadj} argument.}
 
   \item{line}{Eadge lines to the circles, the argyment will be passed to the \code{polygon\{graphics\}} function. Default is \code{NA} (no lines).}
     \item{lwd}{Eadge line width of the circles, the argyment will be passed to the \code{polygon\{graphics\}} function. Default is 2 (but will be ignored when \code{line = NA}).}

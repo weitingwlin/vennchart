@@ -2,8 +2,17 @@
 
 plotVennTexts <- function(P, Atext = "A", Btext = "B", Ctext = "C", 
                           ABtext = " ", ACtext = " ", BCtext = " ",
+                          names = "default",
                           Value = TRUE, cex = 1, connect = "\n", unit = " ",
                           digits = 3){
+    
+    # argument names overwrite the Atext, Btext,...
+    if (names[1] != "default"){
+        Atext = names[1]
+        Btext = names[2]
+        Ctext = names[3]
+    }
+    
     
     if (Value == TRUE){
         At <- paste(Atext, connect, as.character(round(P$A, digits = digits)), unit)

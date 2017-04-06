@@ -38,8 +38,7 @@ vennThreeCircle <- function(A_all, B_all, C_all, AandB, AandC, BandC, try = 100)
               "c2" = c2, "r2" = r2,
               "c3" = c3, "r3" = r3,
               "A" = A_all, "B" = B_all, "C" = C_all,
-              "AB" = AandB, "AC" = AandC, "BC" = BandC,
-              "limits" = lim)
+              "AB" = AandB, "AC" = AandC, "BC" = BandC)
   } else {
     out <- vennlogic
   }

@@ -19,10 +19,11 @@ vennTextPosition <- function (vennout, textadj = c(0.5, 0.5)){
     c3p <- vecRotate(c3 - c1, -1 * theta0)
     
   # position of the main compartment
-    thetaA <- vecAngle(c2p, c1p) 
+    thetaB <- vecAngle(c3p -c2p)
+    thetaA_BC <- vecAngle(c2p, c1p) 
     thetaB_AC <-  vecAngle(c2p - c3p) # perpendicular to line A-C
   
-    textA <- r1 * vecRotate(c(1,0), thetaA-pi) * textadj[1]
+    textA <- r1 * vecRotate(c(1,0), thetaB- (pi)/2) * textadj[1]
     textB <- c2p + (r2 * vecRotate(c(1, 0), thetaB_AC))  * textadj[1]
     textC <- c3p + (c3p / sqrt(c3p[1]^2 + c3p[2]^2)) * r3 * textadj[1]
     

@@ -5,8 +5,11 @@
 
 plotVenn <- function(V, 
                      color = list(rgb(0,0,1,0.3), rgb(1,0, 0, 0.3), rgb(0, 1, 0, 0.3)),
-                    line  = NA,lwd = 2, frameadj = 1.5,  lim = getPlotLimit(V, adj = frameadj)
-                     ){
+                    line  = NA,lwd = 2, frameadj = 1.5, lim = "default")
+                     {
+  if (lim[1] == "default"){
+      lim <- getPlotLimit(V, adj = frameadj)
+  }    
   
   p <- plot(1, type = "n", xlim = lim$xlim, ylim = lim$ylim,  
        xaxt = 'n', ann = FALSE, yaxt ='n')

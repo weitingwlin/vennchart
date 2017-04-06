@@ -5,7 +5,8 @@
 %%  ~~function to do ... ~~
 }
 \description{
-%%  ~~ A concise (1-5 lines) description of what the function does. ~~
+This function takes three-variable values and their overlapped values and fit to a Venn chart. (The value of where three variables overlap may not fit exactly.) 
+
 }
 \usage{
 vennchart(A_all, B_all, C_all, 

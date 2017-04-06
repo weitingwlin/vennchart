@@ -5,9 +5,9 @@
 
 plotVenn <- function(V, 
                      color = list(rgb(0,0,1,0.3), rgb(1,0, 0, 0.3), rgb(0, 1, 0, 0.3)),
-                    line  = NA,lwd = 2, frameadj = 1.5, lim = "default")
+                    line  = NA,lwd = 2, frameadj = 1.5, lim = NULL)
                      {
-  if (lim[1] == "default"){
+  if (is.null(lim)){
       lim <- getPlotLimit(V, adj = frameadj)
   }    
   

@@ -1,11 +1,11 @@
 #source("plotvenn.R")
 #' @export
 
-vennChart <- function(A_all , B_all , C_all ,
-                      AandB , AandC , BandC,
+vennChart <- function(A_all , B_all , C_all = NULL ,
+                      AandB , AandC = NULL , BandC = NULL,
                       plot = TRUE, 
                       colors = list(rgb(0,0,1,0.3), rgb(1,0, 0, 0.3), rgb(0, 1, 0, 0.3)),
-                      frameadj = 1.5, line = NA, lwd = 2, lim = "default",
+                      frameadj = 1.5, line = NA, lwd = 2, lim = NULL,
                       texts = TRUE, names = c("A", "B", "C"),
                       Value = TRUE, cex = 1, textadj = c(0.5, 0.5),
                       connect = "\n", unit = " ", digits = 3){
@@ -19,7 +19,7 @@ vennChart <- function(A_all , B_all , C_all ,
     
     out <- list("circles" = s, "textspos" = p)
     
-    if (lim[1] == "default"){
+    if (is.null(lim)){
         lim <- getPlotLimit(s, adj = frameadj)
     } 
     

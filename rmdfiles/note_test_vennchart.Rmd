@@ -27,6 +27,14 @@ library(vennchart)
 
 ```{r,fig.width = 7, fig.height = 7}
 #source("sourceAll.R")
+Q <- vennChart(A_all = co_A, B_all = co_B, 
+                AandB = co_AB, plot= FALSE)
+
+```
+
+
+```{r,fig.width = 7, fig.height = 7}
+#source("sourceAll.R")
 Q <- vennChart(A_all = co_A, B_all = co_B, C_all = co_C,
                 AandB = co_AB, AandC = co_AC, BandC = co_BC)
 

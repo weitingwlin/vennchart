@@ -5,14 +5,19 @@ plotVennTexts <- function(P, Atext = "A", Btext = "B", Ctext = "C",
                           names = NULL,
                           Value = TRUE, cex = 1, connect = "\n", unit = " ",
                           digits = 3){
-    
+  
+    if (! "C" %in% names(P)){
+      P$C <- 1
+      P$AC <- 1
+      P$BC <- 1
+     }
    
     # argument names overwrite the Atext, Btext,...
     if ( ! is.null(names)){
         Atext = names[1]
         Btext = names[2]
         
-        if ("C" %in% names(P)){
+        if ("tpC" %in% names(P)){
           Ctext = names[3]
         }
     }
@@ -44,7 +49,7 @@ plotVennTexts <- function(P, Atext = "A", Btext = "B", Ctext = "C",
         text(P$tpAB[1], P$tpAB[2], ABt, cex =cex, adj = c(0.5, 0.5))
     }
     
-    if ("C" %in% names(P)){
+    if ("tpC" %in% names(P)){
         text(P$tpC[1], P$tpC[2], Ct, cex =cex, adj = c(0.5, 0.5))
     
         if ( "tpAC" %in% names(P)){

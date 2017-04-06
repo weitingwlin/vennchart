@@ -16,7 +16,7 @@ vennThreeCircle <- function(A_all, B_all, C_all = NULL, AandB, AandC = NULL, Ban
           out <- n
           out$A <- A_all
           out$B <- B_all
-          out$C <- C_all
+          out$AB <- AandB
       
       } else {
       

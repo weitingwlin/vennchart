@@ -2,12 +2,12 @@
 
 plotVennTexts <- function(P, Atext = "A", Btext = "B", Ctext = "C", 
                           ABtext = " ", ACtext = " ", BCtext = " ",
-                          names = "default",
+                          names = NULL,
                           Value = TRUE, cex = 1, connect = "\n", unit = " ",
                           digits = 3){
     
     # argument names overwrite the Atext, Btext,...
-    if (names[1] != "default"){
+    if ( ! is.null(names)){
         Atext = names[1]
         Btext = names[2]
         Ctext = names[3]

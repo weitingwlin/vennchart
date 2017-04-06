@@ -18,7 +18,7 @@ plotVenn <- function(V,
   plotCircle(V$c1, V$r1, color[[1]], line = line, lwd = lwd)
   plotCircle(V$c2, V$r2, color[[2]], line = line, lwd = lwd)
   
-  if ( "c3" %in% names(vennout)) {
+  if ( "c3" %in% names(V)) {
     plotCircle(V$c3, V$r3, color[[3]], line = line, lwd = lwd)
   }
 }

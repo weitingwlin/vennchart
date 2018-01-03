@@ -19,9 +19,9 @@ co_AC <-1
 ```{r}
 # install.packages("devtools")
  library(devtools)
-# install_github("vennchart", "weitingwlin")
+ install_github("vennchart", "weitingwlin")
 # install("~/Dropbox/DataCoding/my_R/package/vennchart")
- install("C:/Users/Wei-Ting/Dropbox/DataCoding/my_R/package/vennchart")
+# install("C:/Users/Wei-Ting/Dropbox/DataCoding/my_R/package/vennchart")
 library(vennchart)
 ```
 
@@ -29,8 +29,6 @@ library(vennchart)
 #source("sourceAll.R")
 Q <- vennChart(A_all = co_A, B_all = co_B, 
                 AandB = co_AB)
-
-
 ```
 
 
@@ -74,8 +72,8 @@ Q <- vennChart(A_all = co_A, B_all = co_B, C_all = co_C,
 Q <- vennChart(A_all = co_A, B_all = co_B, C_all = co_C,
                 AandB = co_AB, AandC = co_AC, BandC = co_BC,
                colors = list(rgb(0.145, 0.51, 0.71, 0.4), 
-                          rgb(1, 0.78, 0.16, 0.4),
-                          rgb(1, 0.32, 0.16, 0.4)),
+                             rgb(1, 0.78, 0.16, 0.4),
+                             rgb(1, 0.32, 0.16, 0.4)),
                textadj = c(1, 0.2),
                cex = 1.5,
                frameadj = 1.1

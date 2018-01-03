@@ -18,7 +18,7 @@ vennChart(A_all , B_all , C_all ,
           frameadj = 1.5, line  = NA, lwd = 2, 
           texts = TRUE, names = c("A", "B", "C"),
           Value = TRUE, cex = 1, textadj = c(0.5, 0.5),
-          connect = "\n", unit = " ")
+          connect = "\n", unit = " ", digits = 3)
 
 plotVenn(V, 
          color = list(rgb(0,0,1,0.3), rgb(1,0, 0, 0.3), rgb(0, 1, 0, 0.3)),
@@ -60,9 +60,12 @@ plotVennTexts(P, Atext = "A", Btext = "B", Ctext = "C",
   
 }
 
+
 \details{
 %%  ~~ If necessary, more details than the description above ~~
 }
+
+
 \value{
 %%  ~Describe the value returned
 %%  If it is a LIST, use

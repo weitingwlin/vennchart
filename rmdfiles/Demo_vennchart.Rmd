@@ -1,0 +1,52 @@
+---
+title: "Demo_Vennchart"
+output:  md_document
+---
+## 0. Download, install, library th package
+```{r}
+# install.packages("devtools")
+ library(devtools)
+# install the package from github
+ install_github("vennchart", "weitingwlin")
+ library(vennchart)
+```
+
+
+## 1. Prepare mock data
+
+```{r}
+rm(list =ls())
+co_A <- 8 # including pure and overlapping parts
+co_B <- 12
+co_C <- 3
+co_AB <- 1.9 # overlaping parts
+co_BC <- 0.5
+co_AC <-1
+```
+
+Add a new chunk by clicking the *Insert Chunk* button on the toolbar or by pressing *Cmd+Option+I*.
+
+When you save the notebook, an HTML file containing the code and output will be saved alongside it (click the *Preview* button or press *Cmd+Shift+K* to preview the HTML file).
+
+## 2. Examples
+
+### 2.1 two-circle Venn chart
+
+```{r, fig.width = 5, fig.height = 5}
+Q <- vennChart(A_all = co_A, B_all = co_B, AandB = co_AB)
+```
+
+```{r, fig.width = 5, fig.height = 5}
+Q <- vennChart(A_all = co_A, B_all = co_B, C_all = co_C,
+                AandB = co_AB, AandC = co_AC, BandC = co_BC,
+               # rename element A,B,C
+               # rewrite format
+               names = c("a", "b", "c"), connect = "\n(", unit = "%)", 
+               # adjust text positions
+               textadj = c(1.3, 0.3),
+               # make the text relatively bigger
+               cex = 1.3,
+               # make the frame relatively smaller
+               frameadj = 1.2)
+```
+
